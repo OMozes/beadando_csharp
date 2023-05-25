@@ -68,7 +68,20 @@ class DataCollection
 		return clone;
 	}
 
-	public void PrintData()
+    public DataCollection SelectData(Func<int, bool> condition)
+    {
+        DataCollection selectedDataCollection = new DataCollection();
+        foreach (var item in data)
+        {
+            if (condition(item.Item2))
+            {
+                selectedDataCollection.AddData(item.Item1, item.Item2);
+            }
+        }
+        return selectedDataCollection;
+    }
+
+    public void PrintData()
 	{
 		foreach (var item in data)
 		{

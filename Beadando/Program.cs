@@ -36,6 +36,9 @@ class Program
         Console.WriteLine("Van-e 'Tamás nevű ember? " + dataCollection.Contains("Tamás"));
         Console.WriteLine("'Nikolett' nevű ember indexe: " + dataCollection.IndexOf("Nikolett"));
         Console.WriteLine("Utolsó adat: " + dataCollection.GetLastData());
+        DataCollection selectedDataCollection = dataCollection.SelectData(age => age > 30);
+        Console.WriteLine("30 évnél idősebb emberek és koraik:");
+        selectedDataCollection.PrintData();
 
         Console.WriteLine("\n--- MemberwiseClone példa ---");
         DataCollection cloneCollection = dataCollection.MemberwiseClone();
